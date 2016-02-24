@@ -1,0 +1,8 @@
+###############################
+# README File for Assignment01
+# by Johannes Schulz-Knappe
+# 24.02.2016
+###############################
+
+Using the Assignment01 repository created by MujahedHertie at February 15 for the first group assignment
+
