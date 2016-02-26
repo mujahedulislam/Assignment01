@@ -10,7 +10,7 @@ We have used two seperate example datasets pre installed in R. I (Md Mujahedul I
 
 
 #USArrests DATASET by Md Mujahedul Islam 
-I have used the example dataset set up within R called "USArrests" that provides data on the  number of arrests for murder, assault, and rape for each of the 50 states in the United States in year 1973. It also provides data on the how many people of a particular state in percentage live in an urban area. There are thus in total 4 variables named 'assault, murder, rape and urbanpop' and 50 rows that contain the names of each states. You would find the descriptive analysis of this **USArrests** dataset in the *r_source_dataset02.r* file. Besides, in the repository, there are some images that simply demonstrates finding coded at the *r_source_dataset02.r*. 
+I have used the example dataset set up within R called "USArrests" that provides data on the  number of arrests for murder, assault, and rape for each of the 50 states in the United States in year 1973. It also provides data on the how many people of a particular state in percentage live in an urban area. There are thus in total 4 variables named 'assault, murder, rape and urbanpop' and 50 rows that contain the names of each states. You would find the descriptive analysis of this **USArrests** dataset in the **r_source_dataset02.r** file. Besides, in the repository, there are some images that simply demonstrates finding coded at the **r_source_dataset02.r**. 
 
 
 
