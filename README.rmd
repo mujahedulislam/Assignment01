@@ -4,7 +4,7 @@
 # 24.02.2016
 ###############################
 
-We have used two seperate example datasets pre installed in R. I (Md Mujahedul Islam) have analysed "USArrests" datasets while Johannes Schulz-Knappe has used stock dataset. We created our repository called "Assignment01" on February 15 for our first pair assignment. This README files aim to clearly describe what we have done for this assignments. 
+We have used two seperate example datasets pre installed in R. Md Mujahedul Islam has analysed "USArrests" datasets while Johannes Schulz-Knappe has used stock dataset. We created our repository called "Assignment01" on February 15 for our first pair assignment. This README files aim to clearly describe what we have done for this assignments. 
 
 #Stock DATASET by Johannes Schulz-Knappe 
 
