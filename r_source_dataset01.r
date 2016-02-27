@@ -8,15 +8,17 @@
 # Setting the working directory
 ## Set your own directory when running the file!
 getwd()
-setwd('C:/Users/Johannes SK/Dropbox/Studium/Spring2016/CollaborativeResearch/Assignment01')
+# setwd('C:/Users/Johannes SK/Dropbox/Studium/Spring2016/CollaborativeResearch/Assignment01')
+
 
 # Install packages
 ## if not already installed, then run:
-# install.packages("weathermetrics")
-# install.packages("ggplot2")
+install.packages("weathermetrics")
+install.packages("ggplot2")
 library(weathermetrics)
 library(ggplot2)
 ?weathermetrics
+
 
 # Integrating dataset into the environment
 data("nottem")
@@ -26,6 +28,9 @@ nottem
 # Converting temperature from fahrenheit into degrees celsius
 nottemTempC <- fahrenheit.to.celsius(nottem)
 nottemTempC
+
+
+# Beware, now the experimental part starts
 
 '# Exploring vector Properties of nottemTempC
 length(nottemTempC)
@@ -48,28 +53,28 @@ time(nottemTempC)'
 
 # Data presentation 1 - Overall Time Series
 
+
 # Plotting the time series
 plot(nottemTempC, , col="red", ylab="Monthly Average in °C", main="Temperature Chart for Nottingham")
 
 # Data presentation 2 - Monthly averages
 
-# Calculate month from date:
-nottemTempC$month <- with(nottem, factor(as.POSIXlt(Date)$mon, label=month.abb))
+# Creating variable month
+month <- c(rep(1:12, 20))
+month
+Nottem <- 0
+# Turning the dataset into a dataframe
+Nottem <- as.matrix(nottemTempC)
+View(nottemTempC)
+Nottem_df <- data.frame(Nottem, month)
+# The time series data does not allow me to simply add columns.
+# I will have to create a completely new data.frame
 
-#--Calculate year from date:
-nottemTempC$year <- with(nottemTempC, 1900 + as.POSIXlt(Date)$year)
-
-#--Only use complete years:
-middayweather <- subset(middayweather, year %in% 2007:2009)
 
 
-install.packages(ggplot)
-library(ggplot)
-theme_set(theme_gray(base_size = 11))
-ggplot(data=nottenTempC)
 
 # Data presentation 3 - General Temperature Trend
-ggplot2::ggplot(nottem, aes(nottem, ))
+
 
 
 # See: http://www.sr.bham.ac.uk/~ajrs/R/r-gallery.html for more examples how to present temperature charts in R
