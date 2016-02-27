@@ -6,9 +6,9 @@
 ####################################
 
 # Setting the working directory
-## Set your own directory when running the file!
+# Set your own directory when running the file!
 getwd()
-# setwd('C:/Users/Johannes SK/Dropbox/Studium/Spring2016/CollaborativeResearch/Assignment01')
+setwd('C:/Users/Johannes SK/Dropbox/Studium/Spring2016/CollaborativeResearch/Assignment01')
 
 
 # Install packages
@@ -30,8 +30,6 @@ nottemTempC <- fahrenheit.to.celsius(nottem)
 nottemTempC
 
 
-# Beware, now the experimental part starts
-
 '# Exploring vector Properties of nottemTempC
 length(nottemTempC)
 dim(nottemTempC)
@@ -47,9 +45,10 @@ NottemTime
 ts.plot(NottemTime)
 dim(NottemTime)
 View(NottemTime)
-
 time(NottemTime)
 time(nottemTempC)'
+
+
 
 # Data presentation 1 - Overall Time Series
 
@@ -59,6 +58,7 @@ plot(nottemTempC, , col="red", ylab="Monthly Average in °C", main="Temperature C
 
 # Data presentation 2 - Monthly averages
 
+'First attempt: Extending the existing Dataset
 # Creating variable month
 month <- c(rep(1:12, 20))
 month
@@ -68,13 +68,44 @@ Nottem <- as.matrix(nottemTempC)
 View(nottemTempC)
 Nottem_df <- data.frame(Nottem, month)
 # The time series data does not allow me to simply add columns.
-# I will have to create a completely new data.frame
+# I will have to create a completely new data.frame'
+
+# Creating a new dataframe
+JanuaryTemp <- c(nottemTempC[c(1, 13, 25, 37, 49, 61, 73, 85, 97)])
+
+n <- c(0:19)
+JanuaryT <- c(nottemTempC[c(1+12*n)])
+FebruaryT <- c(nottemTempC[c(2+12*n)])
+MarchT <- c(nottemTempC[c(3+12*n)])
+AprilT <- c(nottemTempC[c(4+12*n)])
+MayT <- c(nottemTempC[c(5+12*n)])
+JuneT <- c(nottemTempC[c(6+12*n)])
+JulyT <- c(nottemTempC[c(7+12*n)])
+AugustT <- c(nottemTempC[c(8+12*n)])
+SeptemberT <- c(nottemTempC[c(9+12*n)])
+OctoberT <- c(nottemTempC[c(10+12*n)])
+NovemberT <- c(nottemTempC[c(11+12*n)])
+DecemberT <- c(nottemTempC[c(12+12*n)])
+
+Nottem <- data.frame(JanuaryT, FebruaryT, MarchT, AprilT, MayT, 
+                     JuneT, JulyT, AugustT, SeptemberT, OctoberT,
+                     NovemberT, DecemberT)
+View(Nottem)
 
 
+boxplot(Nottem$JanuaryT, Nottem$FebruaryT, Nottem$MarchT, 
+        Nottem$AprilT, Nottem$MayT, Nottem$JuneT, 
+        Nottem$JulyT, Nottem$AugustT, Nottem$SeptemberT, 
+        Nottem$OctoberT, Nottem$NovemberT, Nottem$DecemberT,
+  main = 'Monthly Averages from 1920 to 1940',
+  ylab = 'Temperature in °C',
+  
+# FINALLY!!!
 
+# Creating Factor for the months?
 
 # Data presentation 3 - General Temperature Trend
-
+# ...
 
 
 # See: http://www.sr.bham.ac.uk/~ajrs/R/r-gallery.html for more examples how to present temperature charts in R
