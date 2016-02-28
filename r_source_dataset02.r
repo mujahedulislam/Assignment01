@@ -2,7 +2,7 @@
 # --------Assignment01-------- # 
 # Example R Dataset: "USArrests"
 # Md Mujahedul Islam 
-# 24 February 2016
+# 28 February 2016
 # Hertie School of Governance
 ################################
 
@@ -19,7 +19,15 @@ getwd()
 #Clearing all and loading packages I need for the Assignment01#
 #-------------------------------------------------------------#
 rm(list = ls()) #just to clear all
-load <- c("dplyr", "magrittr", "readstata13", "ggplot2", "reshape", "plyr") #shortcut to load packages I need
+## if not done before, install:
+# install.packages("dplyr")
+# install.packages("magrittr")
+# install.packages("readstata13")
+# install.packages("ggplot2")
+# install.packages("reshape")
+# install.packages("plyr")
+load <- c("dplyr", "magrittr", "readstata13", "ggplot2", "reshape", "plyr") 
+# shortcut to load packages I need
 loaded <- lapply(load, require, character.only = T)
 rm(load, loaded)
 
@@ -115,33 +123,39 @@ summary(USArrests$murder, assault, urbanpop, rape)
 summary(USArrests)
 
 
-#----------------------------------------------------------#
-#Barplot using ggplot to show murder rate in the US in 1973#
-#----------------------------------------------------------#
+#------------------------------------------------------------#
+# Barplot using ggplot to show murder rate in the US in 1973 #
+#------------------------------------------------------------#
+
 ggplot(USArrests) +
-  geom_bar(aes(y = murder, x = states), 
+  geom_bar(aes(y = murder, x = reorder(states, -murder)), 
            stat = "identity") +
   ylab("Murder Rate per 100,000") +
+  xlab("State") +
   ggtitle("Murder Rate in the United States in 1973") +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 90))
 
 
-#-------------------------------------------------------------------#
-#Colomn chart using ggplot to show rate in the United States in 1973#
-#-------------------------------------------------------------------#
+#---------------------------------------------------------------------#
+# Colomn chart using ggplot to show rate in the United States in 1973 #
+#---------------------------------------------------------------------#
+
 ggplot(USArrests) +
-  geom_bar(aes(y = rape, x = states), 
+  geom_bar(aes(y = rape, x = reorder(states, -rape)), 
            stat = "identity") +
   ylab("Rape arrests (per 100,000)") +
+  xlab("States") +
   ggtitle("Rape rate in the United States in 1973") +
   theme_bw() +
   coord_flip()
 
 
-#------------------------------------------------------------------------------------------------------------#
-#Histograp using ggplot to demonstrate the frequency of the % of the population living in urban areas in 1973#
-#-------------------------------------------------------------------------------------------------#
+#---------------------------------------------------------------------#
+# Histogram using ggplot to demonstrate the frequency of the % of the #
+# population living in urban areas in 1973                            #
+#---------------------------------------------------------------------#
+
 ggplot(USArrests) +
   geom_histogram(aes(x = urbanpop),
                  colour = "black",
@@ -168,3 +182,9 @@ barplot(USArrests$murder, names.arg = states, las = 2, ylab = "Murder rate per 1
 hist(USArrests$assault,
      main = 'Violent Assault by USA States (per 100,000) in 1973',
      xlab = 'numeric	 Assault arrests (per 100,000')
+
+
+# Citation()
+# R Core Team (2015). R: A language and environment for statistical
+# computing. R Foundation for Statistical Computing, Vienna, Austria. URL
+# https://www.R-project.org/.
