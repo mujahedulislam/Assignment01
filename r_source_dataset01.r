@@ -1,7 +1,7 @@
 ####################################
 # R source to analyze dataset nottem
 # Johannes Schulz-Knappe
-# 27 February 2016
+# 28 February 2016
 # Hertie School of Governance
 ####################################
 
@@ -13,8 +13,8 @@ setwd('C:/Users/Johannes SK/Dropbox/Studium/Spring2016/CollaborativeResearch/Ass
 
 # Install packages
 ## if not already installed, then run:
-install.packages("weathermetrics")
-install.packages("ggplot2")
+# install.packages("weathermetrics")
+# install.packages("ggplot2")
 library(weathermetrics)
 library(ggplot2)
 ?weathermetrics
@@ -51,13 +51,13 @@ time(nottemTempC)'
 #----------------------------------------------------------------#
 # Histogram that shows that Nottem data are normally distributed #
 #----------------------------------------------------------------#
-histogram <- nottem
+histogram <- nottemTempC
 m<-mean(histogram)
 std<-sqrt(var(histogram))
 hist(histogram, density=100, breaks=49, col="grey", prob=TRUE,
-     xlab="nottem", ylim=c(0, 0.07),
+     xlab="Temperature in °C", ylim=c(0, 0.13),
      ylab="Frequency",
-     main="Histogram to show the distribution of Nottem data",cex.main=1)
+     main="Histogram to show the distribution of Nottingham data",cex.main=1)
 curve(dnorm(x, mean=m, sd=std),
       col="black", lwd=1, add=TRUE, yaxt="n")
       
@@ -66,7 +66,7 @@ curve(dnorm(x, mean=m, sd=std),
 
 
 # Plotting the time series
-plot(nottemTempC, , col="red", ylab="Monthly Average in Â°C", main="Temperature Chart for Nottingham")
+plot(nottemTempC, , col="red", ylab="Monthly Average in °C", main="Temperature Chart for Nottingham")
 
 # Data presentation 2 - Monthly averages
 
@@ -83,42 +83,34 @@ Nottem_df <- data.frame(Nottem, month)
 # I will have to create a completely new data.frame'
 
 # Creating a new dataframe
-JanuaryTemp <- c(nottemTempC[c(1, 13, 25, 37, 49, 61, 73, 85, 97)])
 
 n <- c(0:19)
-JanuaryT <- c(nottemTempC[c(1+12*n)])
-FebruaryT <- c(nottemTempC[c(2+12*n)])
-MarchT <- c(nottemTempC[c(3+12*n)])
-AprilT <- c(nottemTempC[c(4+12*n)])
-MayT <- c(nottemTempC[c(5+12*n)])
-JuneT <- c(nottemTempC[c(6+12*n)])
-JulyT <- c(nottemTempC[c(7+12*n)])
-AugustT <- c(nottemTempC[c(8+12*n)])
-SeptemberT <- c(nottemTempC[c(9+12*n)])
-OctoberT <- c(nottemTempC[c(10+12*n)])
-NovemberT <- c(nottemTempC[c(11+12*n)])
-DecemberT <- c(nottemTempC[c(12+12*n)])
+Jan <- c(nottemTempC[c(1+12*n)])
+View(Jan)
+Feb <- c(nottemTempC[c(2+12*n)])
+Mar <- c(nottemTempC[c(3+12*n)])
+Apr <- c(nottemTempC[c(4+12*n)])
+May <- c(nottemTempC[c(5+12*n)])
+Jun <- c(nottemTempC[c(6+12*n)])
+Jul <- c(nottemTempC[c(7+12*n)])
+Aug <- c(nottemTempC[c(8+12*n)])
+Sep <- c(nottemTempC[c(9+12*n)])
+Oct <- c(nottemTempC[c(10+12*n)])
+Nov <- c(nottemTempC[c(11+12*n)])
+Dec <- c(nottemTempC[c(12+12*n)])
+Year <- c(1920:1939)
 
-Nottem <- data.frame(JanuaryT, FebruaryT, MarchT, AprilT, MayT, 
-                     JuneT, JulyT, AugustT, SeptemberT, OctoberT,
-                     NovemberT, DecemberT)
+Nottem <- data.frame(Year, Jan, Feb, Mar, Apr, May, Jun, Jul,
+                     Aug, Sep, Oct, Nov, Dec)
 View(Nottem)
 
-
-boxplot(Nottem$JanuaryT, Nottem$FebruaryT, Nottem$MarchT, 
-        Nottem$AprilT, Nottem$MayT, Nottem$JuneT, 
-        Nottem$JulyT, Nottem$AugustT, Nottem$SeptemberT, 
-        Nottem$OctoberT, Nottem$NovemberT, Nottem$DecemberT,
+boxplot(Nottem$Jan, Nottem$Feb, Nottem$Mar, 
+        Nottem$Apr, Nottem$May, Nottem$Jun, 
+        Nottem$Jul, Nottem$Aug, Nottem$Sep, 
+        Nottem$Oct, Nottem$Nov, Nottem$Dec,
   main = 'Monthly Averages from 1920 to 1940',
-  ylab = 'Temperature in Â°C',
+  ylab = 'Temperature in °C')
   
-# FINALLY!!!
-
-# Creating Factor for the months?
-
-# Data presentation 3 - General Temperature Trend
-# ...
-
 
 # See: http://www.sr.bham.ac.uk/~ajrs/R/r-gallery.html for more examples how to present temperature charts in R
 
