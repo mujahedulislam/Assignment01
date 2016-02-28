@@ -48,13 +48,25 @@ View(NottemTime)
 time(NottemTime)
 time(nottemTempC)'
 
-
+#----------------------------------------------------------------#
+# Histogram that shows that Nottem data are normally distributed #
+#----------------------------------------------------------------#
+histogram <- nottem
+m<-mean(histogram)
+std<-sqrt(var(histogram))
+hist(histogram, density=100, breaks=49, col="grey", prob=TRUE,
+     xlab="nottem", ylim=c(0, 0.07),
+     ylab="Frequency",
+     main="Histogram to show the distribution of Nottem data",cex.main=1)
+curve(dnorm(x, mean=m, sd=std),
+      col="black", lwd=1, add=TRUE, yaxt="n")
+      
 
 # Data presentation 1 - Overall Time Series
 
 
 # Plotting the time series
-plot(nottemTempC, , col="red", ylab="Monthly Average in °C", main="Temperature Chart for Nottingham")
+plot(nottemTempC, , col="red", ylab="Monthly Average in Â°C", main="Temperature Chart for Nottingham")
 
 # Data presentation 2 - Monthly averages
 
@@ -98,7 +110,7 @@ boxplot(Nottem$JanuaryT, Nottem$FebruaryT, Nottem$MarchT,
         Nottem$JulyT, Nottem$AugustT, Nottem$SeptemberT, 
         Nottem$OctoberT, Nottem$NovemberT, Nottem$DecemberT,
   main = 'Monthly Averages from 1920 to 1940',
-  ylab = 'Temperature in °C',
+  ylab = 'Temperature in Â°C',
   
 # FINALLY!!!
 
