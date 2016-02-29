@@ -36,11 +36,9 @@ rm(load, loaded)
 #Scanning the dataset to getting an idea of the overall data#
 #-----------------------------------------------------------#
 data(USArrests) # to load the data
-View(USArrests) # to view data
 names(USArrests) # to see names of variables 
 dim(USArrests) # to see how big the data frame, for instance, it has 50 rows, 4 variables
 arrange(USArrests, murder) # to arrage data to see at a glance which state has highest murder rate
-help(USArrests) # to see the codebook of this dataset
 attributes(USArrests) # to see variable names, the class of the object, and the row names
 attributes(USArrests)$row.names # to see the row names
 
