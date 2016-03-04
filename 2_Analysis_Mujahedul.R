@@ -3,7 +3,7 @@
 # Assignment01
 # Analysis of R example dataset "USArrests"
 # Md Mujahedul Islam 
-# Updated 01 March 2016
+# Updated 04 March 2016
 # Hertie School of Governance
 #######################################################################
 
@@ -34,7 +34,7 @@ rm(load, loaded)
 #-----------------------------------------------------------------------#
 
 # Create list of commonly used working directories (update, if needed!)
-possible_dir <- c('C:/Users/Johannes SK/Dropbox/Studium/Spring2016/CollaborativeResearch',
+possible_dir <- c('C:/Users/Johannes SK/Dropbox/Studium/Spring2016/CollaborativeResearch/Assignment01',
                   'C:/Users/User/Documents/GitHub/Assignment01')
 
 # Set to first valid directory in the possible_dir vector

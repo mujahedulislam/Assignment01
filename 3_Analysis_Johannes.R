@@ -3,7 +3,7 @@
 # Assignment01
 # Analysis of R example dataset "nottem" 
 # Johannes Schulz-Knappe
-# Updated 01 March 2016
+# Updated 04 March 2016
 # Hertie School of Governance
 #######################################################################
 
@@ -22,7 +22,7 @@ library(repmis)
 
 # Set the working directory
 
-# Create list of commonly used working directories (update, if needed!)
+# Create list of commonly used working directories (update, if needed)
 possible_dir <- c('C:/Users/Johannes SK/Dropbox/Studium/Spring2016/CollaborativeResearch/Assignment01',
                   'C:/Users/User/Documents/GitHub/Assignment01')
 
