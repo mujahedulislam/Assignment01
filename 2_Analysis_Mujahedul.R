@@ -210,6 +210,52 @@ hist(USArrests$assault,
      main = 'Violent Assault by USA States (per 100,000) in 1973',
      xlab = 'numeric	 Assault arrests (per 100,000)')
 
+# Comparing former Confederate States to the rest
+USArrests$dixie <- USArrests$states
+USArrests$dixie <- 0
+USArrests$dixie[which(USArrests$states=="Florida")] <- 1 #former Confederate State
+USArrests$dixie[which(USArrests$states=="Georgia")] <- 1 #former Confederate State
+USArrests$dixie[which(USArrests$states=="North Carolina")] <- 1 #former Confederate State
+USArrests$dixie[which(USArrests$states=="South Carolina")] <- 1 #former Confederate State
+USArrests$dixie[which(USArrests$states=="Mississippi")] <- 1 #former Confederate State
+USArrests$dixie[which(USArrests$states=="Alabama")] <- 1 #former Confederate State
+USArrests$dixie[which(USArrests$states=="Texas")] <- 1 #former Confederate State
+USArrests$dixie[which(USArrests$states=="Virginia")] <- 1 #former Confederate State
+USArrests$dixie[which(USArrests$states=="Arkansas")] <- 1 #former Confederate State
+USArrests$dixie[which(USArrests$states=="Tennessee")] <- 1 #former Confederate State
+USArrests$dixie[which(USArrests$states=="Louisiana")] <- 1 #former Confederate State
+
+# Descriptive Statistics: Dixie
+par(mfrow=c(1,2))
+hist(USArrests$murder[USArrests$dixie==0],
+     main="Rate North",
+     col=(c("firebrick1")),
+     xlab="Murder Arrests/100 000", ylab="Frequency")
+hist(USArrests$murder[USArrests$dixie==1],
+     main="Rate South",
+     col=(c("mediumspringgreen")),
+     xlab="Murder Arrests/100 000", ylab="Frequency")
+hist(USArrests$assault[USArrests$dixie==0],
+     main="Rate North",
+     col=(c("firebrick1")),
+     xlab="Assault Arrests/100 000", ylab="Frequency")
+hist(USArrests$assault[USArrests$dixie==1],
+     main="Rate South",
+     col=(c("mediumspringgreen")),
+     xlab="Assault Arrests/100 000", ylab="Frequency")
+hist(USArrests$rape[USArrests$dixie==0],
+     main="Rate North",
+     col=(c("firebrick1")),
+     xlab="Rape Arrests/100 000", ylab="Frequency")
+hist(USArrests$rape[USArrests$dixie==1],
+     main="Rate South",
+     col=(c("mediumspringgreen")),
+     xlab="Rape Arrests/100 000", ylab="Frequency")
+par(mfrow=c(1,1))
+list(Mmean <- tapply(USArrests$murder, USArrests$dixie, mean))
+list(Amean <- tapply(USArrests$assault, USArrests$dixie, mean))
+list(Rmean <- tapply(USArrests$rape, USArrests$dixie, mean))
+rm(Mmean, Amean, Rmean)
 
 # Citation
 # R Core Team (2015). R: A language and environment for statistical
